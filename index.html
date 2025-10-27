@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>xyzzniko.id</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #0f0c29;
+      --bg2: #302b63;
+      --bg3: #24243e;
+      --accent: #ff4d6d;
+      --light: #ffffff;
+    }
+
+    * {box-sizing: border-box}
+    html, body {height: 100%}
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--light);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 30% 20%, rgba(255,77,109,0.15), transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(138,43,226,0.15), transparent 50%),
+        linear-gradient(135deg, rgba(15,12,41,0.75), rgba(48,43,99,0.85), rgba(36,36,62,0.75));
+      z-index: 1;
+      animation: bgShift 16s ease-in-out infinite;
+    }
+
+    @keyframes bgShift {
+      0%, 100% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+    }
+
+    .wrap {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      position: relative;
+      width: min(720px, 92vw);
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 28px;
+      padding: 36px 28px 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute; inset: -30%; border-radius: 40px;
+      background: radial-gradient(closest-side, rgba(255,77,109,0.25), transparent 70%);
+      filter: blur(40px);
+      animation: drift 18s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes drift {
+      0% { transform: translate(-10%, -10%) }
+      50% { transform: translate(12%, 8%) }
+      100% { transform: translate(-10%, -10%) }
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(48px, 9vw, 96px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 1px;
+      text-align: center;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-weight: 300;
+      font-size: clamp(14px, 2.6vw, 18px);
+      opacity: 0.9;
+      margin-bottom: 22px;
+    }
+
+    .heart {
+      width: clamp(80px, 18vw, 160px);
+      aspect-ratio: 1/1;
+      display: block;
+      margin: 10px auto 20px;
+      transform-origin: center;
+      animation: beat 1.25s ease-in-out infinite;
+      filter: drop-shadow(0 10px 26px rgba(255,77,109,0.35));
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1) }
+      25% { transform: scale(1.06) }
+      50% { transform: scale(0.98) }
+      75% { transform: scale(1.08) }
+    }
+
+    .chipbar {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin: 4px 0 18px;
+    }
+    .chip {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.06);
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    .cta {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      border-radius: 16px;
+      padding: 12px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(180deg, #ff7a8a, #ff4d6d);
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(255,77,109,0.45);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.05) }
+    .btn:active { transform: translateY(1px) }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.45);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+
+    footer {
+      margin-top: 20px; text-align: center; font-size: 12px; opacity: .8;
+    }
+
+    .floaters { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .floater { position: absolute; font-size: 14px; opacity: .3; animation: floatUp linear infinite; }
+    @keyframes floatUp {
+      0% { transform: translateY(140%); opacity: 0 }
+      10% { opacity: .35 }
+      90% { opacity: .35 }
+      100% { transform: translateY(-20%); opacity: 0 }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="glow"></div>
+
+      <svg class="heart" viewBox="0 0 512 512" aria-hidden="true" role="img">
+        <path fill="currentColor" d="M471.6 73.1C437 38.5 384.3 32 342.2 55.3c-19.1 10.5-35.6 26.6-46.2 46.2-10.6-19.6-27.1-35.7-46.2-46.2C207.7 32 155 38.5 120.4 73.1c-48.1 48.1-48.1 126.1 0 174.2l23 23L256 382.9l112.6-112.6 23-23c48.1-48.1 48.1-126.1 0-174.2z"/>
+      </svg>
+
+      <h1>I love you cei</h1>
+      <p class="subtitle">Will you be my lover? 💖</p>
+      <p class="subtitle">terima ya 😡</p>
+
+      <div class="chipbar">
+        <span class="chip">love</span>
+        <span class="chip">cei💕</span>
+        <span class="chip">💌</span>
+        <span class="chip">I love you</span>
+      </div>
+
+      <div class="cta">
+        <button class="btn" id="btnConfetti">✨ Ledakan Cinta</button>
+        <button class="btn btn-outline" id="btnCopy">📋 Salin Pesan</button>
+      </div>
+
+      <footer>
+        xyzzniko.id
+      </footer>
+
+      <div class="floaters" id="floaters" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script>
+    // Set background image dynamically
+    const bgImages = [
+      'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1920',
+      'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1920',
+      'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1920'
+    ];
+    const randomBg = bgImages[Math.floor(Math.random() * bgImages.length)];
+    document.documentElement.style.setProperty('--bg-image', `url('${randomBg}')`);
+    
+    // Lightweight confetti-like effect with floating hearts
+    const floaters = document.getElementById('floaters');
+    const btnConfetti = document.getElementById('btnConfetti');
+    const btnCopy = document.getElementById('btnCopy');
+
+    function makeHeart(x) {
+      const el = document.createElement('div');
+      el.className = 'floater';
+      el.textContent = '❤';
+      const size = 12 + Math.random()*24;
+      el.style.left = (x ?? Math.random()*100) + '%';
+      el.style.fontSize = size + 'px';
+      el.style.animationDuration = (8 + Math.random()*6) + 's';
+      el.style.animationDelay = (-Math.random()*6) + 's';
+      floaters.appendChild(el);
+      setTimeout(() => el.remove(), 16000);
+    }
+
+    for (let i = 0; i < 18; i++) makeHeart();
+
+    btnConfetti.addEventListener('click', (e) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      for (let i = 0; i < 24; i++) setTimeout(() => makeHeart(x + (Math.random()*20-10)), i*40);
+    });
+
+    btnCopy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('I love you cei 💕');
+        btnCopy.textContent = '✓ Tersalin!';
+        setTimeout(() => btnCopy.textContent = '📋 Salin Pesan', 1200);
+      } catch (e) {
+        alert('Gagal menyalin. Silakan salin manual: I love you cei 💕');
+      }
+    });
+  </script>
+</body>
+</html>
